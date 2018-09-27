@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 $tasks =
     [
         [
@@ -7,6 +8,18 @@ $tasks =
             "content" => "sdsdsdsdsds"
         ],
 ];
+//1 Подключиться
+$pdo = new PDO("mysql:host=localhost; dbname=testsiteall02", "root", "root");
+
+//2 подготовить запрос prepare statement
+$statement = $pdo->prepare("SELECT * FROM tasks");
+$result = $statement->execute();
+echo '<pre>';
+var_dump($statement->fetchAll(PDO::FETCH_ASSOC));die;
+echo '</pre>';
+
+
+
 ?>
 
 
@@ -37,33 +50,17 @@ $tasks =
 					</tr>
 				</thead>
 				<tbody>
+				<?php foreach ($tasks as $task):?>
 					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
+						<th scope="row"><?= $task["id"];?></th>
+						<td><?= $task["title"];?></td>
 						<td>
 							<a href="#" class="btn btn-info">Show</a>
 							<a href="#" class="btn btn-warning">Edit</a>
 							<a href="#" class="btn btn-danger">Delete</a>
 						</td>
 					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>
-							<a href="#" class="btn btn-info">Show</a>
-							<a href="#" class="btn btn-warning">Edit</a>
-							<a href="#" class="btn btn-danger">Delete</a>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>
-							<a href="#" class="btn btn-info">Show</a>
-							<a href="#" class="btn btn-warning">Edit</a>
-							<a href="#" class="btn btn-danger">Delete</a>
-						</td>
-					</tr>
+				<?php endforeach;?>
 				</tbody>
 			</table>
 			</div>
