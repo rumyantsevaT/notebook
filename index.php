@@ -1,3 +1,15 @@
+<?php
+$tasks =
+    [
+        [
+            "id" => 15,
+            "title" => "Go to the store",
+            "content" => "sdsdsdsdsds"
+        ],
+];
+?>
+
+
 <!doctype html>
 <html lang="ru">
 <head>
