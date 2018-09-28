@@ -34,7 +34,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 		<div class="row">
 			<div class="col-12">
 				<h1>All Tasks</h1>
-			<a href="create.html" class="btn btn-success">Add Task</a>
+			<a href="create.php" class="btn btn-success">Add Task</a>
 			<table class="table">
 				<thead class="thead-light">
 					<tr>
