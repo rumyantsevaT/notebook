@@ -6,7 +6,7 @@ $data = [
 		"title" => $_POST['title'],
 		"content" => $_POST['content']
 ];
-$pgo = new PDO ("mysql:host=localhost; dbname=notebook01", "root", "root");
+$pgo = new PDO ("mysql:host=localhost; dbname=notebook", "root", "root");
 $sql = "UPDATE tasks SET title=:title, content=:content WHERE id=:id";
 $statement = $pgo->prepare($sql);
 $statement->execute($data);

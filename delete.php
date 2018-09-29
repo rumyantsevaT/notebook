@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$pdo = new PDO ("mysql:host=localhost; dbname=notebook01", "root", "root");
+$pdo = new PDO ("mysql:host=localhost; dbname=notebook", "root", "root");
 $sql = "DELETE FROM tasks WHERE id=:id";
 $statement = $pdo->prepare($sql);
 $statement->bindParam(":id", $id);

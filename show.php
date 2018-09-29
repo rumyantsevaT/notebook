@@ -1,7 +1,7 @@
 <?php
 $sql = "SELECT * FROM tasks WHERE id=:id";
 
-$pdo = new PDO ("mysql:host=localhost; dbname=notebook01", "root", "root");
+$pdo = new PDO ("mysql:host=localhost; dbname=notebook", "root", "root");
 $statement = $pdo->prepare($sql);
 $statement->bindParam(":id", $_GET['id']);
 $statement->execute();
