@@ -49,9 +49,9 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 						<th scope="row"><?= $task["id"];?></th>
 						<td><?= $task["title"];?></td>
 						<td>
-							<a href="#" class="btn btn-info">Show</a>
-							<a href="#" class="btn btn-warning">Edit</a>
-							<a href="#" class="btn btn-danger">Delete</a>
+							<a href="show.php?id=<?= $task['id'];?>" class="btn btn-info">Show</a>
+							<a href="edit.php?id=<?= $task['id'];?>" class="btn btn-warning">Edit</a>
+							<a onclick="return confirm('Вы уверены, что хотите удалить запись?')" href="delete.php?id=<?= $task['id'];?>" class="btn btn-danger">Delete</a>
 						</td>
 					</tr>
 				<?php endforeach;?>

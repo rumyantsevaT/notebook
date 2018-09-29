@@ -17,7 +17,7 @@
             <h1>Create task</h1>
             <form action="store.php" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="title">
+                    <input type="text" name="title" class="form-control">
                 </div>
                 <div class="form-group">
                     <textarea name="content" class="form-control"></textarea>
