@@ -9,12 +9,14 @@ error_reporting(E_ALL);
 //        ],
 //];
 //1 Подключиться к базе данных через класс pdo
-$pdo = new PDO("mysql:host=localhost; dbname=testsiteall02", "root", "root");
+$pdo = new PDO("mysql:host=localhost; dbname=notebook01", "root", "root");
 
 //2 подготовить запрос prepare statement
 $statement = $pdo->prepare("SELECT * FROM tasks");
 $result = $statement->execute();
 $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+//Получаем записи
 ?>
 
 <!doctype html>

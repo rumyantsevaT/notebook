@@ -3,7 +3,7 @@
 //var_dump($_POST);
 
 //Вставить в таблицу Tasks в столбцы () следующие значения ()
-$pdo = new PDO ("mysql:host=localhost; dbname=testsiteall02", "root", "root");
+$pdo = new PDO ("mysql:host=localhost; dbname=notebook01", "root", "root");
 
 //передаем данные через метки, чтобы избежать sql иньекций
 $sql = "INSERT INTO tasks (title, content) VALUES (:title, :content)";
