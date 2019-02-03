@@ -1,8 +1,6 @@
 <?php
 //var_dump($_GET, $_POST);
 
-
-
 //Изменение | обновлнеие существующей задачи
 function updateTask($data)
 {
