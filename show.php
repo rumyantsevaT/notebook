@@ -1,20 +1,24 @@
 <?php
-//вывод одной задачи
-function getTask($id)
-{
-    //редактирование одной записи по id
-    $pdo = new PDO ("mysql:host=localhost;dbname=notebook;charset=utf8", "root", "root");
-    $sql = "SELECT * FROM tasks WHERE id=:id";
-    $statement = $pdo->prepare($sql);
-    $statement->bindParam(":id", $id);
-    $statement->execute();
-    $task = $statement->fetch(PDO::FETCH_ASSOC);
-    
-    return $task;
-}
+
+require 'database/QueryBuilder.php';
+
+$db = new QueryBuilder();
+////вывод одной задачи
+//function getTask($id)
+//{
+//    //редактирование одной записи по id
+//    $pdo = new PDO ("mysql:host=localhost;dbname=notebook;charset=utf8", "root", "root");
+//    $sql = "SELECT * FROM tasks WHERE id=:id";
+//    $statement = $pdo->prepare($sql);
+//    $statement->bindParam(":id", $id);
+//    $statement->execute();
+//    $task = $statement->fetch(PDO::FETCH_ASSOC);
+//
+//    return $task;
+//}
 
 $id = $_GET['id'];
-$task = getTask($id);
+$task = $db->getTask($id);
 ?>
 
 <!doctype html>
