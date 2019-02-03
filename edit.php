@@ -1,12 +1,20 @@
 <?php
-$sql = "SELECT * FROM tasks WHERE id=:id";
-
-$pdo = new PDO ("mysql:host=localhost; dbname=notebook", "root", "root");
-$statement = $pdo->prepare($sql);
-$statement->bindParam(":id", $_GET['id']);
-$statement->execute();
-$task = $statement->fetch(PDO::FETCH_ASSOC);
-
+//вывод одной задачи
+function getTask($id)
+{
+    //редактирование одной записи по id
+    $pdo = new PDO ("mysql:host=localhost;dbname=notebook;charset=utf8", "root", "root");
+    $sql = "SELECT * FROM tasks WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(":id", $id);
+    $statement->execute();
+    $task = $statement->fetch(PDO::FETCH_ASSOC);
+    
+    return $task;
+}
+var_dump($task);
+$id = $_GET['id'];
+$task = getTask($id);
 ?>
 <!doctype html>
 <html lang="ru">
@@ -31,7 +39,7 @@ $task = $statement->fetch(PDO::FETCH_ASSOC);
                     <input type="text" name="title" class="form-control" value="<?= $task['title'];?>">
                 </div>
                 <div class="form-group">
-                    <textarea name="content" class="form-control"><?= $task['content'];?></textarea>
+                    <textarea name="content" class="form-control"><?= $task['content'];?>1212</textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-warning" type="submit">Submit</button>

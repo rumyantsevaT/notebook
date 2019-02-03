@@ -1,13 +1,20 @@
 <?php
-$sql = "SELECT * FROM tasks WHERE id=:id";
+//вывод одной задачи
+function getTask($id)
+{
+    //редактирование одной записи по id
+    $pdo = new PDO ("mysql:host=localhost;dbname=notebook;charset=utf8", "root", "root");
+    $sql = "SELECT * FROM tasks WHERE id=:id";
+    $statement = $pdo->prepare($sql);
+    $statement->bindParam(":id", $id);
+    $statement->execute();
+    $task = $statement->fetch(PDO::FETCH_ASSOC);
+    
+    return $task;
+}
 
-$pdo = new PDO ("mysql:host=localhost; dbname=notebook", "root", "root");
-$statement = $pdo->prepare($sql);
-$statement->bindParam(":id", $_GET['id']);
-$statement->execute();
-$task = $statement->fetch(PDO::FETCH_ASSOC);
-
-//var_dump($task); die;
+$id = $_GET['id'];
+$task = getTask($id);
 ?>
 
 <!doctype html>
@@ -28,7 +35,7 @@ $task = $statement->fetch(PDO::FETCH_ASSOC);
         <div class="col-12">
             <h1><?= $task['title'];?></h1>
             <p><?= $task['content'];?></p>
-            <a href="/notebook/index.php" class="btn btn-primary">Go back</a>
+            <a href="/" class="btn btn-primary">Go back</a>
         </div>
         <!-- /.col-12 -->
     </div>

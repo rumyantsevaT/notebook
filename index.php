@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+//Получаем записи
 //$tasks =
 //    [
 //        [
@@ -8,15 +9,21 @@ error_reporting(E_ALL);
 //            "content" => "sdsdsdsdsds"
 //        ],
 //];
-//1 Подключиться к базе данных через класс pdo
-$pdo = new PDO("mysql:host=localhost; dbname=notebook", "root", "root");
 
-//2 подготовить запрос prepare statement
-$statement = $pdo->prepare("SELECT * FROM tasks");
-$result = $statement->execute();
-$tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+//Список задач
+function getAllTasks()
+{
+    //1 Подключиться к базе данных через класс pdo
+    $pdo = new PDO("mysql:host=localhost; dbname=notebook", "root", "root");
 
-//Получаем записи
+		//2 подготовить запрос prepare statement
+    $statement = $pdo->prepare("SELECT * FROM tasks");
+    $statement->execute();
+    $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $tasks;
+}
+
+$tasks = getAllTasks();
 ?>
 
 <!doctype html>
