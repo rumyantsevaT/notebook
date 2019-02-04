@@ -4,7 +4,9 @@ error_reporting(E_ALL);
 require 'database/QueryBuilder.php';
 
 $db = new QueryBuilder();
-$tasks = $db->getAllTasks();
+//$tasks = $db->getAllTasks();
+
+$tasks = $db->all('tasks');
 ?>
 
 <!doctype html>

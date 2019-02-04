@@ -1,7 +1,5 @@
 <?php
-
 require 'database/QueryBuilder.php';
-
 $db = new QueryBuilder();
 ////вывод одной задачи
 //function getTask($id)
@@ -18,7 +16,9 @@ $db = new QueryBuilder();
 //}
 
 $id = $_GET['id'];
-$task = $db->getTask($id);
+//$task = $db->getTask($id);
+
+$task = $db->getOneById("tasks", $id);
 ?>
 
 <!doctype html>
