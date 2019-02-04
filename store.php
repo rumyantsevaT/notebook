@@ -4,7 +4,7 @@
 
 require 'database/QueryBuilder.php';
 
-$db = new QueryBuilder();
+$db = new QueryBuilder($pdo);
 
 $db->addTask($_POST);
 
