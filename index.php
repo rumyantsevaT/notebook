@@ -1,10 +1,21 @@
 <?php
 error_reporting(E_ALL);
 
-require 'database/QueryBuilder.php';
+require './database/QueryBuilder.php';
+require './components/Auth.php';
 
 $db = new QueryBuilder();
 //$tasks = $db->getAllTasks();
+
+//Auth
+//	register()
+	//login()
+	//logout()
+	//currentUser()
+	//check()
+
+$auth = new Auth($db);
+$auth->register("user2", "asd");
 
 $tasks = $db->all('tasks');
 ?>
