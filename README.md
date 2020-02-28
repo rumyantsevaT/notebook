@@ -1,5 +1,5 @@
 # notebook
-Разработка приложения блокнота на чистом php
+Разработка приложения crud на чистом php
 <div class="hightlight">
 	<pre class="highlight">
 		<code>Функционал:
